@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0d0e12;
+  color: #f5f5f7;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('bg-v2.png');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px) brightness(0.4);
+  z-index: -1;
+}
+
+.main-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  padding: 20px;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, background;
+  transition: transform 0.1s ease, background 0.1s ease;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #ff007f, #7f00ff);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(127, 0, 255, 0.4);
+  transform: translateZ(30px);
+}
+
+.brand-name {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  background: linear-gradient(to right, #fff, #a1a1aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateZ(25px);
+}
+
+.tagline {
+  font-size: 14px;
+  color: #00f2fe;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  transform: translateZ(20px);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a1a1aa;
+  margin-bottom: 30px;
+  transform: translateZ(15px);
+}
+
+/* 🌟 赛博流光按钮完全体开始 */
+.action-btn {
+  position: relative;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 35px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  display: inline-block;
+  transition: all 0.3s ease;
+  transform: translateZ(20px);
+}
+
+.action-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+      #00f2fe, 
+      #4facfe, 
+      #00f2fe, 
+      #7f00ff, 
+      #ff007f, 
+      #00f2fe
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: auroraRotate 4s linear infinite;
+}
+
+.action-btn::after {
+  content: '进入作品集';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #0d0e12;
+  color: #ffffff;
+  border-radius: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateZ(25px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
+}
+
+.action-btn:hover::before {
+  opacity: 1;
+}
+
+.action-btn:hover::after {
+  background: transparent;
+  color: #000000;
+}
+
+/* 🌟 流光旋转动画 */
+@keyframes auroraRotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}

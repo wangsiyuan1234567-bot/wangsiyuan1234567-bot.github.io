@@ -3,260 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王思源 | 数字资产看板</title>
-    <!-- 引入外部样式（保留原本的样式底子） -->
-    <link rel="stylesheet" href="style.css">
+    <title>王思源 | 视觉架构师</title>
     
     <style>
-        /* ==========================================
-           🎨 物理全盘修复：核心暗黑毛玻璃大卡片样式
-           ========================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            margin: 0;
-            padding: 0;
-            background: #0a0a0a; /* 暗黑背景 */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #0d0e12;
+            color: #f5f5f7;
             min-height: 100vh;
-        }
-
-        .main-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .modal-card {
-            background: rgba(25, 25, 25, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
-            padding: 40px;
-            width: 100%;
-            max-width: 480px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            box-sizing: border-box;
-        }
-
-        .card-title {
-            color: #ffffff;
-            font-size: 22px;
-            font-weight: 600;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 30px;
-            letter-spacing: 0.5px;
-        }
-
-        .asset-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 20px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .asset-item:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(0, 242, 254, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .asset-icon {
-            font-size: 24px;
-            line-height: 1;
-        }
-
-        .asset-info h3 {
-            color: #ffffff;
-            font-size: 16px;
-            font-weight: 600;
-            margin: 0 0 6px 0;
-        }
-
-        .asset-info p {
-            color: #999999;
-            font-size: 13px;
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .divider {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 12px;
-            text-align: center;
-            margin: 30px 0 25px 0;
-            letter-spacing: 2px;
-        }
-
-        /* 表单样式修复 */
-        #contactForm .input-group {
-            margin-bottom: 16px;
-        }
-
-        #contactForm input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.02);
-            border: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 12px 0;
-            color: #ffffff;
-            font-size: 14px;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
-
-        #contactForm input:focus {
-            outline: none;
-            border-bottom-color: #00f2fe;
-        }
-
-        #contactForm input::placeholder {
-            color: #555555;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: transparent;
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            color: #00f2fe;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: all 0.3s ease;
-            letter-spacing: 1px;
-        }
-
-        .submit-btn:hover {
-            background: rgba(0, 242, 254, 0.08);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
-        }
-
-        /* ==========================================
-           ✨ 全盘外挂：量子通信流光交互系统弹窗样式
-           ========================================== */
-        .custom-modal-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
             display: flex; justify-content: center; align-items: center;
-            z-index: 9999; opacity: 0;
-            transition: opacity 0.3s ease; pointer-events: none;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            position: relative;
         }
-        .custom-modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .custom-modal-box {
-            position: relative; width: 90%; max-width: 420px; padding: 1.5px;
-            border-radius: 16px; overflow: hidden;
-            background: conic-gradient(from 0deg, transparent, #00f2fe, transparent, #ff0844, transparent);
-            animation: rotateStreamer 4s linear infinite;
-            transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        /* 🌌 三重路径兼容：强行抓取你的 ComfyUI 渲染图 */
+        .bg-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* 保险A：抓取带.png的 / 保险B：抓取不显示后缀的 / 保险C：抓取可能重名叠加的 */
+            background-image: url('anime-collage-bg.png'), 
+                              url('anime-collage-bg'),
+                              url('anime-collage-bg.png.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 1;
+            opacity: 0.65;
         }
-        .custom-modal-overlay.active .custom-modal-box { transform: scale(1); }
-        .custom-modal-content { background: #141414; padding: 30px; border-radius: 15px; color: #ffffff; text-align: center; }
-        .custom-modal-text { font-size: 15px; line-height: 1.6; margin-bottom: 25px; white-space: pre-wrap; color: #e0e0e0; text-align: left; }
-        .custom-modal-btn {
-            background: linear-gradient(135deg, #00f2fe, #4facfe); color: #0d0d0d; font-weight: bold;
-            border: none; padding: 10px 32px; border-radius: 20px; cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3); transition: all 0.2s ease; width: 100%;
+
+       /* 🌌 纯净暗黑面罩：洗掉紫色，还原真实色彩 */
+       .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 14, 18, 0.65); /* 🌟 纯黑色半透明，只降亮度，绝不染色！ */
+            z-index: 2;
         }
-        .custom-modal-btn:hover { transform: scale(1.02); box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5); }
-        @keyframes rotateStreamer { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* 3D核心玻璃面板空间 */
+        .main-card { perspective: 1000px; z-index: 5; transition: all 0.5s; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px; padding: 45px; width: 380px; text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            transform-style: preserve-3d; transition: transform 0.1s ease, background 0.3s;
+        }
+        .avatar {
+            width: 80px; height: 80px; background: linear-gradient(135deg, #00f2fe, #7f00ff);
+            border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 32px; font-weight: bold; color: #000; box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+            transform: translateZ(30px);
+        }
+        .brand-name { font-size: 26px; font-weight: 700; margin-bottom: 8px; color: #fff; transform: translateZ(25px); }
+        .tagline { color: #00f2fe; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; transform: translateZ(20px); }
+        .divider { height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent); margin-bottom: 25px; }
+        .description { color: #a1a1aa; font-size: 14px; line-height: 1.6; margin-bottom: 35px; transform: translateZ(15px); }
+        
+        .action-btn {
+            background: transparent; border: 1px solid rgba(0, 242, 254, 0.4);
+            color: #00f2fe; padding: 14px 32px; font-size: 14px; font-weight: 600;
+            border-radius: 14px; cursor: pointer; letter-spacing: 2px;
+            transition: all 0.3s; transform: translateZ(20px);
+        }
+        .action-btn:hover {
+            background: linear-gradient(135deg, #00f2fe, #7f00ff); color: #000;
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.6); border-color: transparent; font-weight: 700;
+        }
+
+        .main-card.fade-out { transform: scale(0.9) !important; filter: blur(5px); opacity: 0.1; pointer-events: none; }
+
+        /* 弹窗遮罩层 */
+        .portfolio-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(13, 14, 18, 0.85); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+            display: flex; justify-content: center; align-items: center;
+            z-index: 100; opacity: 0; pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portfolio-modal.active { opacity: 1; pointer-events: auto; }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 32px; padding: 40px; width: 90%; max-width: 600px;
+            text-align: center; box-shadow: 0 30px 70px rgba(0,0,0,0.8);
+            position: relative; transform: scale(0.85); transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 90vh; overflow-y: auto;
+        }
+        .portfolio-modal.active .modal-content { transform: scale(1); }
+        .close-btn {
+            position: absolute; top: 20px; right: 25px; background: none; border: none; color: #a1a1aa;
+            font-size: 24px; cursor: pointer; transition: color 0.3s; z-index: 10;
+        }
+        .close-btn:hover { color: #ff007f; }
+        .modal-content h2 { margin-bottom: 25px; font-size: 24px; letter-spacing: 1px; color: #fff; }
+
+        /* 作品展示网格 */
+        .project-grid { display: flex; flex-direction: column; gap: 15px; text-align: left; }
+        .project-item {
+            background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; padding: 18px; display: flex; gap: 15px; align-items: center; transition: all 0.3s;
+        }
+        .project-item:hover { background: rgba(255,255,255,0.05); border-color: #00f2fe; transform: translateY(-2px); }
+        .project-icon { font-size: 32px; }
+        .project-item h3 { font-size: 15px; margin-bottom: 4px; color: #fff; }
+        .project-item p { font-size: 13px; color: #a1a1aa; line-height: 1.4; }
+
+        /* 联系表单 */
+        .contact-section { margin-top: 30px; padding-top: 20px; border-top: 1px dashed rgba(255, 255, 255, 0.1); }
+        .form-divider { text-align: center; margin-bottom: 25px; color: #a1a1aa; font-size: 13px; letter-spacing: 2px; }
+        #contactForm { display: flex; flex-direction: column; gap: 22px; }
+        .input-group { position: relative; width: 100%; margin-top: 15px; }
+        .input-group input, .input-group textarea {
+            width: 100%; padding: 10px 5px; background: transparent; border: none; color: #fff; font-size: 14px; outline: none; resize: none;
+        }
+        .input-line { position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: rgba(255, 255, 255, 0.1); transition: all 0.4s; }
+        .input-group label {
+            position: absolute; top: 10px; left: 5px; color: #71717a; font-size: 14px; text-align: left; pointer-events: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .input-group input:focus ~ label, .input-group input:not(:placeholder-shown) ~ label,
+        .input-group textarea:focus ~ label, .input-group textarea:not(:placeholder-shown) ~ label { top: -14px; font-size: 11px; color: #00f2fe; letter-spacing: 1px; }
+        .input-group input:focus ~ .input-line, .input-group textarea:focus ~ .input-line { background: linear-gradient(to right, #00f2fe, #7f00ff); height: 2px; box-shadow: 0 2px 10px rgba(0, 242, 254, 0.4); }
+        .input-group input:invalid:not(:placeholder-shown) ~ .input-line, .input-group textarea:invalid:not(:placeholder-shown) ~ .input-line { background: linear-gradient(to right, #ff0055, #ff5500); box-shadow: 0 2px 10px rgba(255, 0, 85, 0.4); }
+        
+        .submit-btn {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 12px;
+            color: #00f2fe; padding: 12px; font-size: 14px; font-weight: 600; cursor: pointer; letter-spacing: 2px; transition: all 0.3s; margin-top: 10px; width: 100%;
+        }
+        .submit-btn:hover { background: linear-gradient(135deg, #00f2fe, #7f00ff); color: #000; font-weight: 700; border-color: transparent; box-shadow: 0 0 20px rgba(0, 242, 254, 0.5); transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
-    <!-- 卡片主体容器 -->
-    <div class="main-container" id="mainCard">
-        <div class="modal-card">
-            <h2 class="card-title">🎨 我的数字资产展示</h2>
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
+    <main class="main-card">
+        <div class="glass-panel">
+            <div class="avatar">W</div>
+            <h1 class="brand-name">王思源</h1>
+            <p class="tagline">AI 视觉架构师 / 独立开发者</p>
+            <div class="divider"></div>
+            <p class="description">专注于 3D 真实感视觉、AI 漫剧创作与自动化技术落地。手握 ComfyUI 视觉流水线与 Cursor 代码外脑，正在构建未来的数字资产。</p>
+            <button class="action-btn">进入作品集</button>
+        </div>
+    </main>
+
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeBtn">✕</button>
+            <h2>🎨 我的数字资产展示</h2>
             
-            <!-- 1. AI漫剧卡片 -->
-            <div class="asset-item">
-                <span class="asset-icon">🎬</span>
-                <div class="asset-info">
-                    <h3>AI 漫剧视听商业化流水线</h3>
-                    <p>打通角色特征锁定与 SVD 时序控制，实现 3D 真实感神话级换装连贯产出。核心主打成果：新国风神话大作《十二生肖》！</p>
+            <div class="project-grid">
+                <div class="project-item">
+                    <div class="project-icon">🎬</div>
+                    <div>
+                        <h3>AI 漫剧视听商业化流水线</h3>
+                        <p>打通角色特征锁定与 SVD 时序控流，实现 3D 真实感神话史诗分镜量产。</p>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-icon">🤖</div>
+                    <div>
+                        <h3>ComfyUI 自动化电商模特部署</h3>
+                        <p>基于多路 ControlNet 权重金字塔，锁死服装包包版型，智能重绘高级面部。</p>
+                    </div>
                 </div>
             </div>
-            
-            <!-- 2. ComfyUI卡片 -->
-            <div class="asset-item">
-                <span class="asset-icon">🤖</span>
-                <div class="asset-info">
-                    <h3>ComfyUI 自动化电商部署</h3>
-                    <p>基于多路 ControlNet 抠图与换装，锁定服装包包模型，智能融合高质量流光级画面。核心主打成果：高品质虚拟电商模特/包包展示视频/工作流成果！</p>
-                </div>
+
+            <div class="contact-section">
+                <div class="form-divider"><span>📬 携手构建未来资产</span></div>
+                <form id="contactForm">
+                    <div class="input-group">
+                        <input type="text" required placeholder=" ">
+                        <label>你的称呼 / 厂牌</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" required placeholder=" ">
+                        <label>联系方式 (Email格式)</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <div class="input-group">
+                        <textarea required placeholder=" " rows="3"></textarea>
+                        <label>你想勾兑的合作项目</label>
+                        <div class="input-line"></div>
+                    </div>
+                    <button type="submit" class="submit-btn">发射意向</button>
+                </form>
             </div>
-            
-            <div class="divider">✦ 携手构筑未来资产 ✦</div>
-            
-            <!-- 意向提交表单 -->
-            <form id="contactForm">
-                <div class="input-group">
-                    <input type="text" placeholder="你的称呼 / 厂牌名称" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" placeholder="联系方式 (Email信道)" required>
-                </div>
-                <button type="submit" class="submit-btn">发射意向</button>
-            </form>
         </div>
     </div>
 
-    <!-- 核心驱动脚本 -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.glass-panel');
+            const mainCard = document.querySelector('.main-card');
+            const openBtn = document.querySelector('.action-btn');
+            const closeBtn = document.getElementById('closeBtn');
+            const modal = document.getElementById('portfolioModal');
+
+            if (!card) return;
+
+            card.addEventListener('mousemove', (e) => {
+                if (modal.classList.contains('active')) return;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const rotateX = -(y / (rect.height / 2)) * 15;
+                const rotateY = (x / (rect.width / 2)) * 15;
+                const glossX = ((e.clientX - rect.left) / rect.width) * 100;
+                const glossY = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+                card.style.background = `radial-gradient(circle at ${glossX}% ${glossY}%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 80%)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                card.style.background = 'rgba(255, 255, 255, 0.03)';
+            });
+
+            openBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modal.classList.add('active');
+                mainCard.classList.add('fade-out');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                mainCard.classList.remove('fade-out');
+            });
+
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-                    
-                    const nameInput = contactForm.querySelector('input[type="text"]') || contactForm.querySelectorAll('input')[0];
-                    const emailInput = contactForm.querySelector('input[type="email"]') || contactForm.querySelectorAll('input')[1];
-                    
-                    const name = nameInput ? nameInput.value : '神秘访客';
-                    const contact = emailInput ? emailInput.value : '未公开信道';
-                    
-                    const modalText = `🧙‍♂️ 【量子通信建立成功】\n-------------------------\n🏭 厂牌/称呼: ${name}\n📬 联络信道: ${contact}\n\n🚀 信号已全盘发射，静待频段共鸣！`;
-                    
-                    const overlay = document.createElement('div');
-                    overlay.className = 'custom-modal-overlay';
-                    overlay.innerHTML = `
-                        <div class="custom-modal-box">
-                            <div class="custom-modal-content">
-                                <div class="custom-modal-text">${modalText}</div>
-                                <button class="custom-modal-btn">注入灵力</button>
-                            </div>
-                        </div>
-                    `;
-                    document.body.appendChild(overlay);
-                    
-                    setTimeout(() => { 
-                        overlay.classList.add('active'); 
-                    }, 30);
-                    
-                    overlay.querySelector('.custom-modal-btn').addEventListener('click', () => {
-                        overlay.classList.remove('active');
-                        setTimeout(() => { 
-                            overlay.remove(); 
-                        }, 300);
-                    });
-                    
+                    const name = contactForm.querySelector('input[type="text"]').value;
+                    const contact = contactForm.querySelector('input[type="email"]').value;
+                    alert(`🛸 【量子通信建立成功】\n━━━━━━━━━━━━━━━━━━\n📡 厂牌/称呼：${name}\n📬 联络信道：${contact}\n\n🚀 信号已全盘通电发射，思源会尽快建立连接！`);
                     contactForm.reset();
                 });
             }

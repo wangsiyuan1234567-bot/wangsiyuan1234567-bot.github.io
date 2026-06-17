@@ -4,13 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>王思源 | 数字资产看板</title>
+    <!-- 引入外部样式（保留原本的样式底子） -->
     <link rel="stylesheet" href="style.css">
+    
     <style>
+        /* ==========================================
+           🎨 物理全盘修复：核心暗黑毛玻璃大卡片样式
+           ========================================== */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a; /* 暗黑背景 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-card {
+            background: rgba(25, 25, 25, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+        }
+
+        .card-title {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            letter-spacing: 0.5px;
+        }
+
+        .asset-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .asset-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 242, 254, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .asset-icon {
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .asset-info h3 {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 6px 0;
+        }
+
+        .asset-info p {
+            color: #999999;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .divider {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            text-align: center;
+            margin: 30px 0 25px 0;
+            letter-spacing: 2px;
+        }
+
+        /* 表单样式修复 */
+        #contactForm .input-group {
+            margin-bottom: 16px;
+        }
+
+        #contactForm input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.02);
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 0;
+            color: #ffffff;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        #contactForm input:focus {
+            outline: none;
+            border-bottom-color: #00f2fe;
+        }
+
+        #contactForm input::placeholder {
+            color: #555555;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            color: #00f2fe;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background: rgba(0, 242, 254, 0.08);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        /* ==========================================
+           ✨ 全盘外挂：量子通信流光交互系统弹窗样式
+           ========================================== */
         .custom-modal-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(8px);
             display: flex; justify-content: center; align-items: center;
             z-index: 9999; opacity: 0;
@@ -37,10 +179,13 @@
     </style>
 </head>
 <body>
+
+    <!-- 卡片主体容器 -->
     <div class="main-container" id="mainCard">
         <div class="modal-card">
-            <h2 class="card-title">🔮 我的数字资产展示</h2>
+            <h2 class="card-title">🎨 我的数字资产展示</h2>
             
+            <!-- 1. AI漫剧卡片 -->
             <div class="asset-item">
                 <span class="asset-icon">🎬</span>
                 <div class="asset-info">
@@ -49,6 +194,7 @@
                 </div>
             </div>
             
+            <!-- 2. ComfyUI卡片 -->
             <div class="asset-item">
                 <span class="asset-icon">🤖</span>
                 <div class="asset-info">
@@ -59,6 +205,7 @@
             
             <div class="divider">✦ 携手构筑未来资产 ✦</div>
             
+            <!-- 意向提交表单 -->
             <form id="contactForm">
                 <div class="input-group">
                     <input type="text" placeholder="你的称呼 / 厂牌名称" required>
@@ -71,16 +218,20 @@
         </div>
     </div>
 
+    <!-- 核心驱动脚本 -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
             const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
+                    
                     const nameInput = contactForm.querySelector('input[type="text"]') || contactForm.querySelectorAll('input')[0];
                     const emailInput = contactForm.querySelector('input[type="email"]') || contactForm.querySelectorAll('input')[1];
+                    
                     const name = nameInput ? nameInput.value : '神秘访客';
                     const contact = emailInput ? emailInput.value : '未公开信道';
+                    
                     const modalText = `🧙‍♂️ 【量子通信建立成功】\n-------------------------\n🏭 厂牌/称呼: ${name}\n📬 联络信道: ${contact}\n\n🚀 信号已全盘发射，静待频段共鸣！`;
                     
                     const overlay = document.createElement('div');
@@ -94,12 +245,18 @@
                         </div>
                     `;
                     document.body.appendChild(overlay);
-                    setTimeout(() => { overlay.classList.add('active'); }, 30);
+                    
+                    setTimeout(() => { 
+                        overlay.classList.add('active'); 
+                    }, 30);
                     
                     overlay.querySelector('.custom-modal-btn').addEventListener('click', () => {
                         overlay.classList.remove('active');
-                        setTimeout(() => { overlay.remove(); }, 300);
+                        setTimeout(() => { 
+                            overlay.remove(); 
+                        }, 300);
                     });
+                    
                     contactForm.reset();
                 });
             }
